@@ -1,0 +1,16 @@
+<h1>📦 Inventario de Productos</h1>
+
+<app-product-form (productCreated)="addProduct($event)"></app-product-form>
+
+<hr>
+
+<app-product-list [products]="products()" (productDeleted)="deleteProduct($event)"></app-product-list>
+
+<hr>
+
+<h3>Total productos: {{ products().length }}</h3>
+<h3>Total precio: ${{ totalPrice() }}</h3>
+
+@if (totalPrice() > 100000) {
+  <div>🎉 ¡Gran inventario!</div>
+}
